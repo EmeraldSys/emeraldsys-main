@@ -12,7 +12,7 @@ const Index = () => {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
       </Helmet>
       <div className="centerLogo">
-        <img className="centerLogoInner" src="static/emeraldsys_new_nobg.png" />
+        <img className="centerLogoInner" src="https://edge.cdn.emeraldsys.xyz/internal/assets/emeraldsys_new_nobg.png" />
       </div>
       <div className="centerProjects">
         <a href="https://acidity.emeraldsys.xyz">
