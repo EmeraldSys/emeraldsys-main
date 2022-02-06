@@ -10,6 +10,7 @@ const Index = () => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <title>EmeraldSys</title>
       </Helmet>
       <div className="centerLogo">
         <img className="centerLogoInner" src="https://edge.cdn.emeraldsys.xyz/internal/assets/emeraldsys_new_nobg.png" />
