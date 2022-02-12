@@ -21,6 +21,9 @@ const Index = () => {
         <a href="https://pki.emeraldsys.xyz">
           <img style={{ filter: "invert(100%)" }} src="https://raw.githubusercontent.com/google/material-design-icons/master/png/communication/vpn_key/materialiconsoutlined/48dp/1x/outline_vpn_key_black_48dp.png" />
         </a>
+        <a href="https://nhlv.emeraldsys.xyz/games">
+          <img style={{ height: "48px" }} src="https://edge.cdn.emeraldsys.xyz/internal/assets/projects/NHL_white.png" />
+        </a>
         <a href="https://edge.cdn.emeraldsys.xyz">
           <img style={{ filter: "invert(100%)" }} src="https://raw.githubusercontent.com/google/material-design-icons/master/png/file/cloud_download/materialiconsoutlined/48dp/1x/outline_cloud_download_black_48dp.png" />
         </a>
