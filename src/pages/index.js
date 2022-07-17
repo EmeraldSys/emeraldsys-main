@@ -28,6 +28,9 @@ const Index = () => {
         <a href="https://edge.cdn.emeraldsys.xyz">
           <img style={{ filter: "invert(100%)" }} src="https://raw.githubusercontent.com/google/material-design-icons/master/png/file/cloud_download/materialiconsoutlined/48dp/1x/outline_cloud_download_black_48dp.png" />
         </a>
+		<a href="https://gitlab.emeraldsys.xyz">
+		  <img style={{ height: "48px" }} src="https://edge.cdn.emeraldsys.xyz/internal/assets/gitlab-logo-750.png" />
+		</a>
       </div>
       <span className="mainFooter">&copy; 2022 EmeraldSys Media Ltd. All rights reserved. | <a style={{ color: "#ddd", textDecoration: "none" }} href="https://status.emeraldsys.xyz">Service Status</a></span>
     </>
