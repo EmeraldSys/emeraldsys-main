@@ -32,7 +32,12 @@ const Index = () => {
 		  <img style={{ height: "48px" }} src="https://edge.cdn.emeraldsys.xyz/internal/assets/gitlab-logo-750.png" />
 		</a>
       </div>
-      <span className="mainFooter">&copy; 2022 EmeraldSys Media Ltd. All rights reserved. | <a style={{ color: "#ddd", textDecoration: "none" }} href="https://status.emeraldsys.xyz">Service Status</a></span>
+	  <div className="centerDiscord">
+		<iframe src="https://canary.discord.com/widget?id=918034043868704808&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" />
+	  </div>
+      <span className="mainFooter">
+			&copy; 2022 EmeraldSys Media Ltd. All rights reserved. | <a style={{ color: "#ddd", textDecoration: "none" }} href="https://status.emeraldsys.xyz">Service Status</a>
+	  </span>
     </>
   )
 }
