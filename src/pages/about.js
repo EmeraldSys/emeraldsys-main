@@ -14,4 +14,6 @@ const About = () => {
             </Helmet>
         </>
     );
-};
+}
+
+export default About
