@@ -12,7 +12,6 @@ const About = () => {
 
         initWS.onopen = () => {
             console.log("Presence websocket connected");
-            console.log(typeof initWS);
         };
 
         initWS.onmessage = raw => {
