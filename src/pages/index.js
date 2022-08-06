@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
+import GlobalStyle from "../styles/globalStyles"
 import "../styles/index.css"
 
 const Index = () => {
@@ -12,6 +13,7 @@ const Index = () => {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <title>EmeraldSys</title>
       </Helmet>
+      <GlobalStyle />
       <div className="centerLogo">
         <img className="centerLogoInner" src="https://edge.cdn.emeraldsys.xyz/internal/assets/emeraldsys_new_nobg.png" />
       </div>

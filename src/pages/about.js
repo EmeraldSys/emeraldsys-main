@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
+import GlobalStyle from "../styles/globalStyles"
 import styled from "styled-components"
+import WaveGif from "../images/wave.gif"
 
 import { w3cwebsocket as W3CWebSocket } from "websocket"
-
-import WaveGif from "../images/wave.gif"
 
 const AboutContent = styled.div`
     background: #222;
@@ -85,6 +85,7 @@ const About = () => {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
                 <title>EmeraldSys | About</title>
             </Helmet>
+            <GlobalStyle />
             <AboutContent>
                 <GreetingImage src={WaveGif} />
                 <AboutContentTitle>Howdy!</AboutContentTitle>
