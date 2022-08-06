@@ -38,13 +38,13 @@ const About = () => {
     const [presence, setPresence] = React.useState(null);
 
     React.useEffect(() => {
-        let initWS = new W3CWebSocket("wss://api.lanyard.rest/socket");
+        let ws = new W3CWebSocket("wss://api.lanyard.rest/socket");
 
-        initWS.onopen = () => {
+        ws.onopen = () => {
             console.log("Presence websocket connected");
         };
 
-        initWS.onmessage = raw => {
+        ws.onmessage = raw => {
             if (typeof raw.data === "string")
             {
                 let json = JSON.parse(raw.data);
@@ -62,18 +62,18 @@ const About = () => {
                         }
                     });
 
-                    initWS.send(dataToSend);
+                    ws.send(dataToSend);
 
                     setInterval(() => {
                         console.log("HB");
                         let hb = JSON.stringify({ op: 3 });
-                        initWS.send(hb);
+                        ws.send(hb);
                     }, json.d.heartbeat_interval);
                 }
             }
         };
 
-        return () => initWS.close();
+        return () => ws.close();
     }, []);
 
     return (
