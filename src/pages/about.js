@@ -4,9 +4,34 @@ import styled from "styled-components"
 
 import { w3cwebsocket as W3CWebSocket } from "websocket"
 
+import WaveGif from "../images/wave.gif"
+
 const AboutContent = styled.div`
+    background: #222;
+    box-shadow: 3px 3px #333;
+    min-height: 150px;
+    width: 550px;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 25% auto;
     color: #fff;
     font-family: "Ubuntu", monospace, sans-serif;
+`;
+
+const AboutContentTitle = styled.div`
+    font-weight: 700;
+    font-size: 35px;
+`;
+
+const AboutContentDesc = styled.div`
+    margin-top: 15px;
+    font-size: 18px;
+`;
+
+const GreetingImage = styled.img`
+    float: left;
+    border-radius: 5px;
+    margin-right: 10px;
 `;
 
 const About = () => {
@@ -56,12 +81,18 @@ const About = () => {
             <Helmet>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
                 <title>EmeraldSys | About</title>
             </Helmet>
             <AboutContent>
-                WIP
+                <GreetingImage src={WaveGif} />
+                <AboutContentTitle>Howdy!</AboutContentTitle>
+                <AboutContentDesc>
+                    I am a freelance developer, learning and working on many projects
+                    and also contributing to some. I founded EmeraldSys back in 2018 to build a structure
+                    that will support my ongoing projects.
+                </AboutContentDesc>
             </AboutContent>
         </>
     );
