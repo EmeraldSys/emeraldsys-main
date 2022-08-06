@@ -1,8 +1,13 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
-import "../styles/about.css"
+import styled from "styled-components"
 
 import { w3cwebsocket as W3CWebSocket } from "websocket"
+
+const AboutContent = styled.div`
+    color: #fff;
+    font-family: "Ubuntu", monospace, sans-serif;
+`;
 
 const About = () => {
     const [presence, setPresence] = React.useState(null);
@@ -55,6 +60,9 @@ const About = () => {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
                 <title>EmeraldSys | About</title>
             </Helmet>
+            <AboutContent>
+                WIP
+            </AboutContent>
         </>
     );
 }

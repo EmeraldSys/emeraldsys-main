@@ -36,7 +36,7 @@ const Index = () => {
         </a>
       </div>
       <span className="mainFooter">
-        &copy; 2022 EmeraldSys Media Ltd. All rights reserved. | <a style={{ color: "#ddd", textDecoration: "none" }} href="https://status.emeraldsys.xyz">Service Status</a>
+        &copy; 2018-2022 EmeraldSys Media Ltd. All rights reserved. | <a style={{ color: "#ddd", textDecoration: "none" }} href="https://status.emeraldsys.xyz">Service Status</a>
       </span>
     </>
   )
