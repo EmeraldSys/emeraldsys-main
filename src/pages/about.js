@@ -123,63 +123,9 @@ const SpotifyText = styled.span`
 `;
 
 const About = () => {
-    const [ presence, setPresence ] = React.useState({
-        "spotify":{
-            "track_id":"2I4omGCso5PnqRmjfbJWcM",
-            "timestamps":{
-                "start":1659909668992,
-                "end":1659909847251
-            },
-            "song":"Bittersweet Melody - Marcus James Remix",
-            "artist":"Said The Sky; FRND; Marcus James",
-            "album_art_url":"https://i.scdn.co/image/ab67616d0000b2739a7ffcb5154d11fe92c8cfc2",
-            "album":"Sentiment (The Remixes)"
-        },
-        "listening_to_spotify":true,
-        "kv":{
-            "website":"https://www.emeraldsys.xyz",
-            "pronouns":"he/him",
-            "birthday":"07/06/2004"
-        },
-        "discord_user":{
-            "username":"ryand",
-            "public_flags":256,
-            "id":"660292639412846621",
-            "discriminator":"4175",
-            "bot":false,
-            "avatar":"2643fb9c7d17ca57223563669b074a70"
-        },
-        "discord_status":"online",
-        "activities":[
-            {
-                "type":2,
-                "timestamps":{
-                    "start":1659909668992,
-                    "end":1659909847251
-                },
-                "sync_id":"2I4omGCso5PnqRmjfbJWcM",
-                "state":"Said The Sky; FRND; Marcus James",
-                "session_id":"956edc76061c94ba01ef3bd68893b9c1",
-                "party":{
-                    "id":"spotify:660292639412846621"
-                },
-                "name":"Spotify",
-                "id":"spotify:1",
-                "flags":48,
-                "details":"Bittersweet Melody - Marcus James Remix",
-                "created_at":1659909669011,
-                "assets":{
-                    "large_text":"Sentiment (The Remixes)",
-                    "large_image":"spotify:ab67616d0000b2739a7ffcb5154d11fe92c8cfc2"
-                }
-            }
-        ],
-        "active_on_discord_web":false,
-        "active_on_discord_mobile":false,
-        "active_on_discord_desktop":true
-    });
+    const [ presence, setPresence ] = React.useState(null);
 
-    /* React.useEffect(() => {
+    React.useEffect(() => {
         const ws = new W3CWebSocket("wss://api.lanyard.rest/socket");
 
         ws.onopen = () => {
@@ -212,7 +158,7 @@ const About = () => {
         };
 
         return () => ws.close();
-    }, []); */
+    }, []);
 
     return (
         <>
