@@ -1,12 +1,12 @@
-import * as React from "react"
-import { Helmet } from "react-helmet"
-import GlobalStyle from "../styles/globalStyles"
-import styled from "styled-components"
-import WaveGif from "../images/wave.gif"
+import * as React from "react";
+import { Helmet } from "react-helmet";
+import GlobalStyle from "../styles/globalStyles";
+import styled from "styled-components";
+import WaveGif from "../images/wave.gif";
 
-import { w3cwebsocket as W3CWebSocket } from "websocket"
+import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-const AboutContent = styled.div`
+const AboutContent = styled.div `
     background: #222;
     box-shadow: 3px 3px #333;
     min-height: 150px;
@@ -18,44 +18,40 @@ const AboutContent = styled.div`
     font-family: "Ubuntu", monospace, sans-serif;
 `;
 
-const AboutContentTitle = styled.div`
+const AboutContentTitle = styled.div `
     font-weight: 700;
     font-size: 35px;
 `;
 
-const AboutContentDesc = styled.div`
+const AboutContentDesc = styled.div `
     margin-top: 15px;
     font-size: 18px;
 `;
 
-const GreetingImage = styled.img`
+const GreetingImage = styled.img `
     float: left;
     border-radius: 5px;
     margin-right: 10px;
 `;
 
 const About = () => {
-    const [presence, setPresence] = React.useState(null);
+    const [ presence, setPresence ] = React.useState(null);
 
     React.useEffect(() => {
-        let ws = new W3CWebSocket("wss://api.lanyard.rest/socket");
+        const ws = new W3CWebSocket("wss://api.lanyard.rest/socket");
 
         ws.onopen = () => {
             console.log("Presence websocket connected");
         };
 
         ws.onmessage = raw => {
-            if (typeof raw.data === "string")
-            {
-                let json = JSON.parse(raw.data);
+            if (typeof raw.data === "string") {
+                const json = JSON.parse(raw.data);
 
-                if (json.op === 0)
-                {
+                if (json.op === 0) {
                     setPresence(json.d);
-                }
-                else if (json.op === 1)
-                {
-                    let dataToSend = JSON.stringify({
+                } else if (json.op === 1) {
+                    const dataToSend = JSON.stringify({
                         op: 2,
                         d: {
                             subscribe_to_id: "660292639412846621"
@@ -66,7 +62,7 @@ const About = () => {
 
                     setInterval(() => {
                         console.log("HB");
-                        let hb = JSON.stringify({ op: 3 });
+                        const hb = JSON.stringify({ op: 3 });
                         ws.send(hb);
                     }, json.d.heartbeat_interval);
                 }
@@ -92,11 +88,11 @@ const About = () => {
                 <AboutContentDesc>
                     I am a freelance developer, learning and working on many projects
                     and also contributing to some. I founded EmeraldSys back in 2018 to build a structure
-                    that will support my ongoing projects.
+                    that will support my ongoing projects. {presence.discord_status}
                 </AboutContentDesc>
             </AboutContent>
         </>
     );
-}
+};
 
-export default About
+export default About;
