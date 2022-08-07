@@ -1,17 +1,29 @@
 name: "Gatsby Build"
 on:
-  workflow_run:
-    workflows: ["ESLint"]
-    branches: [main]
-    types: [completed]
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: npm i
+      - name: Run Linter
+        run: npm run lint
+  
   github-pages:
     name: GitHub Pages
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: success()
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Install Dependencies
         run: npm i
       - name: Build Static Site

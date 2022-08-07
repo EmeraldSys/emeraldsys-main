@@ -82,15 +82,15 @@ const About = () => {
                 <title>EmeraldSys | About</title>
             </Helmet>
             <GlobalStyle />
-            <AboutContent>
+            {presence && <AboutContent>
                 <GreetingImage src={WaveGif} />
                 <AboutContentTitle>Howdy!</AboutContentTitle>
                 <AboutContentDesc>
                     I am a freelance developer, learning and working on many projects
                     and also contributing to some. I founded EmeraldSys back in 2018 to build a structure
-                    that will support my ongoing projects. {presence.discord_status}
+                    that will support my ongoing projects.
                 </AboutContentDesc>
-            </AboutContent>
+            </AboutContent> }
         </>
     );
 };
