@@ -9,7 +9,6 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 const AboutContent = styled.div`
     background: #222;
     box-shadow: 3px 3px #333;
-    min-height: 150px;
     width: 550px;
     padding: 20px;
     border-radius: 5px;
@@ -32,6 +31,95 @@ const GreetingImage = styled.img`
     float: left;
     border-radius: 5px;
     margin-right: 10px;
+`;
+
+const PresenceList = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    min-height: 45px;
+`;
+
+const StatusHolder = styled.div`
+    padding: 5px;
+`;
+
+const StatusDetailHolder = styled.div``;
+
+const AvatarImage = styled.img`
+    float: left;
+    height: 48px;
+    border-radius: 5px;
+`;
+
+const StatusDetailTop = styled.span`
+    position: relative;
+    margin-left: 10px;
+`;
+
+const StatusDetailBottom = styled.div`
+    position: relative;
+    display: block;
+`;
+
+/* const StatusIndicator = styled.div`
+    width: 5px;
+    height: 5px;
+    margin-left: 55px;
+    margin-top: 5px;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: white;
+    }
+`; */
+
+const StatusText = styled.span`
+    color: ${props => props.statusColor};
+    margin-left: 10px;
+`;
+
+const SpotifyHolder = styled.div`
+    padding: 5px;
+`;
+
+const SpotifyAlbumHolder = styled.div`
+    position: relative;
+    display: inline;
+`;
+
+const SpotifyAlbumImage = styled.img`
+    height: 48px;
+    border-radius: 5px;
+`;
+
+const SpotifyIndicator = styled.img`
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 14px;
+`;
+
+const SpotifyDetailHolder = styled.div`
+    float: right;
+`;
+
+const SpotifyTop = styled.span`
+    position: relative;
+    margin-left: 10px;
+`;
+
+const SpotifyBottom = styled.div`
+    position: relative;
+    display: block;
+`;
+
+const SpotifyText = styled.span`
+    position: relative;
+    margin-left: 10px;
 `;
 
 const About = () => {
@@ -82,7 +170,7 @@ const About = () => {
                 <title>EmeraldSys | About</title>
             </Helmet>
             <GlobalStyle />
-            {presence && <AboutContent>
+            <AboutContent>
                 <GreetingImage src={WaveGif} />
                 <AboutContentTitle>Howdy!</AboutContentTitle>
                 <AboutContentDesc>
@@ -90,7 +178,30 @@ const About = () => {
                     and also contributing to some. I founded EmeraldSys back in 2018 to build a structure
                     that will support my ongoing projects.
                 </AboutContentDesc>
-            </AboutContent> }
+                {presence && <PresenceList>
+                    <StatusHolder>
+                        <StatusDetailHolder>
+                            <AvatarImage src={`https://cdn.discordapp.com/avatars/${presence.discord_user.id}/${presence.discord_user.avatar}.png`} />
+                            <StatusDetailTop>{presence.discord_user.username}#{presence.discord_user.discriminator}</StatusDetailTop>
+                            <StatusDetailBottom>
+                                <StatusText statusColor={`var(--presence-${presence.discord_status})`}>{presence.discord_status}</StatusText>
+                            </StatusDetailBottom>
+                        </StatusDetailHolder>
+                    </StatusHolder>
+                    {presence.listening_to_spotify && <SpotifyHolder>
+                        <SpotifyAlbumHolder>
+                            <SpotifyAlbumImage src={presence.spotify.album_art_url} />
+                            <SpotifyIndicator src="https://cdn-icons-png.flaticon.com/512/174/174872.png" />
+                        </SpotifyAlbumHolder>
+                        <SpotifyDetailHolder>
+                            <SpotifyTop>{presence.spotify.song}</SpotifyTop>
+                            <SpotifyBottom>
+                                <SpotifyText>{presence.spotify.artist}</SpotifyText>
+                            </SpotifyBottom>
+                        </SpotifyDetailHolder>
+                    </SpotifyHolder> }
+                </PresenceList> }
+            </AboutContent>
         </>
     );
 };
