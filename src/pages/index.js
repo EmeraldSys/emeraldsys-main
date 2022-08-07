@@ -37,7 +37,10 @@ const Index = () => (
             </a>
         </div>
         <span className="mainFooter">
-            &copy; 2018-2022 EmeraldSys Media Ltd. All rights reserved. | <a style={{
+            &copy; 2018-2022 EmeraldSys Media Ltd. All rights reserved. <a style={{
+                color: "#ddd",
+                textDecoration: "none"
+            }} href="https://www.emeraldsys.xyz/about">About</a> | <a style={{
                 color: "#ddd",
                 textDecoration: "none"
             }} href="https://status.emeraldsys.xyz">Service Status</a>
