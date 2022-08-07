@@ -6,7 +6,7 @@ import WaveGif from "../images/wave.gif";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-const AboutContent = styled.div `
+const AboutContent = styled.div`
     background: #222;
     box-shadow: 3px 3px #333;
     min-height: 150px;
@@ -18,17 +18,17 @@ const AboutContent = styled.div `
     font-family: "Ubuntu", monospace, sans-serif;
 `;
 
-const AboutContentTitle = styled.div `
+const AboutContentTitle = styled.div`
     font-weight: 700;
     font-size: 35px;
 `;
 
-const AboutContentDesc = styled.div `
+const AboutContentDesc = styled.div`
     margin-top: 15px;
     font-size: 18px;
 `;
 
-const GreetingImage = styled.img `
+const GreetingImage = styled.img`
     float: left;
     border-radius: 5px;
     margin-right: 10px;

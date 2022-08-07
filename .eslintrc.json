@@ -192,7 +192,7 @@
         "before": false,
         "after": true
       }],
-      "template-tag-spacing": [ "error", "always" ],
+      "template-tag-spacing": [ "error", "never" ],
       "wrap-regex": [ "error" ],
       "arrow-body-style": [ "error", "as-needed" ],
       "arrow-spacing": [ "error", {
