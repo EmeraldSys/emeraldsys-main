@@ -123,7 +123,7 @@ const SpotifyText = styled.span`
 `;
 
 const About = () => {
-    const [ presence, setPresence ] = React.useState(null);
+    const [presence, setPresence] = React.useState(null);
 
     React.useEffect(() => {
         const ws = new W3CWebSocket("wss://api.lanyard.rest/socket");

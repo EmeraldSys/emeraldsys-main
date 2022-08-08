@@ -121,7 +121,7 @@
       "no-buffer-constructor": [ "error" ],
       "no-mixed-requires": [ "error" ],
       "array-bracket-newline": [ "error", "consistent" ],
-      "array-bracket-spacing": [ "error", "always" ],
+      "array-bracket-spacing": [ "error", "never" ],
       "block-spacing": [ "error", "always" ],
       "brace-style": [ "error", "1tbs" ],
       "comma-dangle": [ "error" ],
