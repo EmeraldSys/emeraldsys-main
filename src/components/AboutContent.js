@@ -29,13 +29,11 @@ const GreetingImage = styled.img`
     margin-right: 10px;
 `;
 
-export default (props) => {
-    return (
-        <AboutContent>
-            <GreetingImage src={WaveGif} />
-            <AboutContentTitle>{props.title}</AboutContentTitle>
-            <AboutContentDesc>{props.description}</AboutContentDesc>
-            {props.children}
-        </AboutContent>
-    );
-};
+export default (props) => (
+    <AboutContent>
+        <GreetingImage src={WaveGif} />
+        <AboutContentTitle>{props.title}</AboutContentTitle>
+        <AboutContentDesc>{props.description}</AboutContentDesc>
+        {props.children}
+    </AboutContent>
+);
