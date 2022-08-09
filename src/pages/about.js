@@ -125,53 +125,9 @@ const SpotifyText = styled.span`
 `;
 
 const About = () => {
-    const [presence, setPresence] = React.useState({
-        "spotify":null,
-        "listening_to_spotify":false,
-        "kv":{
-            "website":"https://www.emeraldsys.xyz",
-            "pronouns":"he/him",
-            "birthday":"07/06/2004"
-        },
-        "discord_user":{
-            "username":"ryand",
-            "public_flags":256,
-            "id":"660292639412846621",
-            "discriminator":"4175",
-            "bot":false,
-            "avatar":"2643fb9c7d17ca57223563669b074a70"
-        },
-        "discord_status":"online",
-        "activities":[
-            {
-                "type":0,
-                "timestamps":{
-                    "start":1660067730120
-                },
-                "state":"Workspace: emeraldsys-main | main",
-                "session_id":"c2bee2012b387755127d2121e60617e7",
-                "name":"Visual Studio Code",
-                "id":"8441f28ede0beadf",
-                "details":"Editing pages/about.js | Line 24/245 | 7.22KB",
-                "created_at":1660067790859,
-                "buttons":[
-                    "View Repository"
-                ],
-                "assets":{
-                    "small_text":"Visual Studio Code - Insiders",
-                    "small_image":"565949878820405299",
-                    "large_text":"Editing a JAVASCRIPT file",
-                    "large_image":"808841241142755358"
-                },
-                "application_id":"383226320970055681"
-            }
-        ],
-        "active_on_discord_web":false,
-        "active_on_discord_mobile":false,
-        "active_on_discord_desktop":true
-    });
+    const [presence, setPresence] = React.useState(null);
 
-    /* React.useEffect(() => {
+    React.useEffect(() => {
         const ws = new W3CWebSocket("wss://api.lanyard.rest/socket");
 
         ws.onopen = () => {
@@ -204,7 +160,7 @@ const About = () => {
         };
 
         return () => ws.close();
-    }, []); */
+    }, []);
 
     return (
         <>
