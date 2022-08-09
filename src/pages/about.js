@@ -2,8 +2,8 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import GlobalStyle from "../styles/globalStyles";
 import styled from "styled-components";
-import PulseRing from "../components/PulseRing"
-import PulseDot from "../components/PulseDot"
+import PulseRing from "../components/PulseRing";
+import PulseDot from "../components/PulseDot";
 import WaveGif from "../images/wave.gif";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
