@@ -1,39 +1,12 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import GlobalStyle from "../styles/globalStyles";
 import styled from "styled-components";
-import PulseRing from "../components/PulseRing";
-import PulseDot from "../components/PulseDot";
-import WaveGif from "../images/wave.gif";
+import GlobalStyle from "../styles/globalStyles";
+import AboutContent from "../components/AboutContent";
+import PulseRing from "../components/keyframes/PulseRing";
+import PulseDot from "../components/keyframes/PulseDot";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
-
-const AboutContent = styled.div`
-    background: #222;
-    box-shadow: 3px 3px #333;
-    width: 550px;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 25% auto;
-    color: #fff;
-    font-family: "Ubuntu", monospace, sans-serif;
-`;
-
-const AboutContentTitle = styled.div`
-    font-weight: 700;
-    font-size: 35px;
-`;
-
-const AboutContentDesc = styled.div`
-    margin-top: 15px;
-    font-size: 18px;
-`;
-
-const GreetingImage = styled.img`
-    float: left;
-    border-radius: 5px;
-    margin-right: 10px;
-`;
 
 const PresenceList = styled.div`
     display: flex;
@@ -152,9 +125,53 @@ const SpotifyText = styled.span`
 `;
 
 const About = () => {
-    const [presence, setPresence] = React.useState(null);
+    const [presence, setPresence] = React.useState({
+        "spotify":null,
+        "listening_to_spotify":false,
+        "kv":{
+            "website":"https://www.emeraldsys.xyz",
+            "pronouns":"he/him",
+            "birthday":"07/06/2004"
+        },
+        "discord_user":{
+            "username":"ryand",
+            "public_flags":256,
+            "id":"660292639412846621",
+            "discriminator":"4175",
+            "bot":false,
+            "avatar":"2643fb9c7d17ca57223563669b074a70"
+        },
+        "discord_status":"online",
+        "activities":[
+            {
+                "type":0,
+                "timestamps":{
+                    "start":1660067730120
+                },
+                "state":"Workspace: emeraldsys-main | main",
+                "session_id":"c2bee2012b387755127d2121e60617e7",
+                "name":"Visual Studio Code",
+                "id":"8441f28ede0beadf",
+                "details":"Editing pages/about.js | Line 24/245 | 7.22KB",
+                "created_at":1660067790859,
+                "buttons":[
+                    "View Repository"
+                ],
+                "assets":{
+                    "small_text":"Visual Studio Code - Insiders",
+                    "small_image":"565949878820405299",
+                    "large_text":"Editing a JAVASCRIPT file",
+                    "large_image":"808841241142755358"
+                },
+                "application_id":"383226320970055681"
+            }
+        ],
+        "active_on_discord_web":false,
+        "active_on_discord_mobile":false,
+        "active_on_discord_desktop":true
+    });
 
-    React.useEffect(() => {
+    /* React.useEffect(() => {
         const ws = new W3CWebSocket("wss://api.lanyard.rest/socket");
 
         ws.onopen = () => {
@@ -187,7 +204,7 @@ const About = () => {
         };
 
         return () => ws.close();
-    }, []);
+    }, []); */
 
     return (
         <>
@@ -199,14 +216,9 @@ const About = () => {
                 <title>EmeraldSys | About</title>
             </Helmet>
             <GlobalStyle />
-            <AboutContent>
-                <GreetingImage src={WaveGif} />
-                <AboutContentTitle>Howdy!</AboutContentTitle>
-                <AboutContentDesc>
-                    I am a freelance developer, learning and working on many projects
+            <AboutContent title="Howdy!" description="I am a freelance developer, learning and working on many projects
                     and also contributing to some. I founded EmeraldSys back in 2018 to build a structure
-                    that will support my ongoing projects.
-                </AboutContentDesc>
+                    that will support my ongoing projects.">
                 {presence && <PresenceList>
                     <StatusHolder>
                         <StatusDetailHolder>
