@@ -2,6 +2,8 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import GlobalStyle from "../styles/globalStyles";
 import styled from "styled-components";
+import PulseRing from "../components/PulseRing"
+import PulseDot from "../components/PulseDot"
 import WaveGif from "../images/wave.gif";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
@@ -46,10 +48,52 @@ const StatusHolder = styled.div`
 
 const StatusDetailHolder = styled.div``;
 
-const AvatarImage = styled.img`
+const AvatarImageHolder = styled.div`
     float: left;
+    position: relative;
+    display: inline;
+`;
+
+const AvatarImage = styled.img`
     height: 48px;
     border-radius: 5px;
+`;
+
+const StatusIndicator = styled.div`
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 5%;
+    right: 0;
+
+    &:before {
+        content: '';
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        width: 300%;
+        height: 300%;
+        margin-left: -100%;
+        margin-top: -100%;
+        border-radius: 45px;
+        background: ${props => props.statusColor};
+        animation: ${PulseRing} 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+
+    &:after {
+        z-index: 1000;
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: ${props => props.statusColor};
+        border-radius: 15px;
+        box-shadow: 0 0 8px rgba(0,0,0,.3);
+        animation: ${PulseDot} 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
+    }
 `;
 
 const StatusDetailTop = styled.span`
@@ -61,21 +105,6 @@ const StatusDetailBottom = styled.div`
     position: relative;
     display: block;
 `;
-
-/* const StatusIndicator = styled.div`
-    width: 5px;
-    height: 5px;
-    margin-left: 55px;
-    margin-top: 5px;
-
-    &:after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: white;
-    }
-`; */
 
 const StatusText = styled.span`
     color: ${props => props.statusColor};
@@ -181,7 +210,10 @@ const About = () => {
                 {presence && <PresenceList>
                     <StatusHolder>
                         <StatusDetailHolder>
-                            <AvatarImage src={`https://cdn.discordapp.com/avatars/${presence.discord_user.id}/${presence.discord_user.avatar}.png`} />
+                            <AvatarImageHolder>
+                                <AvatarImage src={`https://cdn.discordapp.com/avatars/${presence.discord_user.id}/${presence.discord_user.avatar}.png`} />
+                                <StatusIndicator statusColor={`var(--presence-${presence.discord_status})`} />
+                            </AvatarImageHolder>
                             <StatusDetailTop>{presence.discord_user.username}#{presence.discord_user.discriminator}</StatusDetailTop>
                             <StatusDetailBottom>
                                 <StatusText statusColor={`var(--presence-${presence.discord_status})`}>{presence.discord_status}</StatusText>
