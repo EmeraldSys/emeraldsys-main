@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
         --presence-dnd: red;
         --presence-offline: white;
     }
+
+    a {
+        color: #fff;
+    }
 `;
 
 export default GlobalStyle;

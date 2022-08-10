@@ -49,7 +49,7 @@ export default (props) => (
                 <SpotifyIndicator src="https://cdn-icons-png.flaticon.com/512/174/174872.png" />
             </SpotifyAlbumHolder>
             <SpotifyDetailHolder>
-                <SpotifyTop>{props.src.song}</SpotifyTop>
+                <SpotifyTop><a href={`https://open.spotify.com/track/${props.src.track_id}`} target="_blank">{props.src.song}</a></SpotifyTop>
                 <SpotifyMiddle>
                     <SpotifyText>by {props.src.artist}</SpotifyText>
                 </SpotifyMiddle>
