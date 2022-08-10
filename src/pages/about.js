@@ -5,6 +5,7 @@ import GlobalStyle from "../styles/globalStyles";
 import AboutContent from "../components/AboutContent";
 import PulseRing from "../components/keyframes/PulseRing";
 import PulseDot from "../components/keyframes/PulseDot";
+import Spotify from "../components/Spotify";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
@@ -84,46 +85,6 @@ const StatusText = styled.span`
     margin-left: 10px;
 `;
 
-const SpotifyHolder = styled.div`
-    padding: 5px;
-`;
-
-const SpotifyAlbumHolder = styled.div`
-    position: relative;
-    display: inline;
-`;
-
-const SpotifyAlbumImage = styled.img`
-    height: 48px;
-    border-radius: 5px;
-`;
-
-const SpotifyIndicator = styled.img`
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 14px;
-`;
-
-const SpotifyDetailHolder = styled.div`
-    float: right;
-`;
-
-const SpotifyTop = styled.span`
-    position: relative;
-    margin-left: 10px;
-`;
-
-const SpotifyMiddle = styled.div`
-    position: relative;
-    display: block;
-`;
-
-const SpotifyText = styled.span`
-    position: relative;
-    margin-left: 10px;
-`;
-
 const About = () => {
     const [presence, setPresence] = React.useState(null);
 
@@ -188,21 +149,7 @@ const About = () => {
                             </StatusDetailBottom>
                         </StatusDetailHolder>
                     </StatusHolder>
-                    {presence.listening_to_spotify && <SpotifyHolder>
-                        <SpotifyAlbumHolder>
-                            <SpotifyAlbumImage src={presence.spotify.album_art_url} />
-                            <SpotifyIndicator src="https://cdn-icons-png.flaticon.com/512/174/174872.png" />
-                        </SpotifyAlbumHolder>
-                        <SpotifyDetailHolder>
-                            <SpotifyTop>{presence.spotify.song}</SpotifyTop>
-                            <SpotifyMiddle>
-                                <SpotifyText>by {presence.spotify.artist}</SpotifyText>
-                            </SpotifyMiddle>
-                            <SpotifyMiddle>
-                                <SpotifyText>on {presence.spotify.album}</SpotifyText>
-                            </SpotifyMiddle>
-                        </SpotifyDetailHolder>
-                    </SpotifyHolder> }
+                    {presence.listening_to_spotify && <Spotify src={presence.spotify} /> }
                 </PresenceList> }
             </AboutContent>
         </>

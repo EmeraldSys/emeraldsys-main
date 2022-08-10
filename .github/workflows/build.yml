@@ -28,7 +28,7 @@ jobs:
       - name: Build Static Site
         run: npm run build
       - name: Publish Static Site
-        uses: jamesives/github-pages-deploy-action@releases/v3
+        uses: jamesives/github-pages-deploy-action@v4
         if: ${{ github.event_name == 'push' }}
         with:
           BRANCH: gh-pages
