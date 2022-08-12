@@ -6,6 +6,7 @@ import AboutContent from "../components/AboutContent";
 import PulseRing from "../components/keyframes/PulseRing";
 import PulseDot from "../components/keyframes/PulseDot";
 import Spotify from "../components/Spotify";
+import LinkedIn from "../components/socials/linkedin";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
@@ -151,6 +152,7 @@ const About = () => {
                     </StatusHolder>
                     {presence.listening_to_spotify && <Spotify src={presence.spotify} /> }
                 </PresenceList> }
+                <LinkedIn />
             </AboutContent>
         </>
     );
