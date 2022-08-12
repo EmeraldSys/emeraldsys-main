@@ -3,10 +3,10 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import GlobalStyle from "../styles/globalStyles";
 import AboutContent from "../components/AboutContent";
-import PulseRing from "../components/keyframes/PulseRing";
-import PulseDot from "../components/keyframes/PulseDot";
+import PulseRing from "../components/Keyframes/PulseRing";
+import PulseDot from "../components/Keyframes/PulseDot";
 import Spotify from "../components/Spotify";
-import LinkedIn from "../components/socials/linkedin";
+import LinkedIn from "../components/Socials/LinkedIn";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
