@@ -26,19 +26,17 @@ const SpotifyDetailHolder = styled.div`
     float: right;
 `;
 
-const SpotifyTop = styled.span`
+const SpotifyDetails = styled.div`
+    width: 300px;
     position: relative;
     margin-left: 10px;
-`;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-const SpotifyMiddle = styled.div`
-    position: relative;
-    display: block;
-`;
-
-const SpotifyText = styled.span`
-    position: relative;
-    margin-left: 10px;
+    &:hover {
+        overflow: visible;
+    }
 `;
 
 export default (props) => (
@@ -49,13 +47,15 @@ export default (props) => (
                 <SpotifyIndicator src="https://cdn-icons-png.flaticon.com/512/174/174872.png" />
             </SpotifyAlbumHolder>
             <SpotifyDetailHolder>
-                <SpotifyTop><a href={`https://open.spotify.com/track/${props.src.track_id}`} target="_blank">{props.src.song}</a></SpotifyTop>
-                <SpotifyMiddle>
-                    <SpotifyText>by {props.src.artist}</SpotifyText>
-                </SpotifyMiddle>
-                <SpotifyMiddle>
-                    <SpotifyText>on {props.src.album}</SpotifyText>
-                </SpotifyMiddle>
+                <SpotifyDetails>
+                    <a href={`https://open.spotify.com/track/${props.src.track_id}`} target="_blank">{props.src.song}</a>
+                </SpotifyDetails>
+                <SpotifyDetails>
+                    by {props.src.artist}
+                </SpotifyDetails>
+                <SpotifyDetails>
+                    on {props.src.album}
+                </SpotifyDetails>
             </SpotifyDetailHolder>
         </SpotifyHolder> }
     </>

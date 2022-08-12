@@ -6,6 +6,7 @@ const AboutContent = styled.div`
     background: #222;
     box-shadow: 3px 3px #333;
     width: 550px;
+    max-width: 900px;
     padding: 20px;
     border-radius: 5px;
     margin: 25% auto;

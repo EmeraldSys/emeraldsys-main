@@ -6,6 +6,7 @@ import AboutContent from "../components/AboutContent";
 import PulseRing from "../components/Keyframes/PulseRing";
 import PulseDot from "../components/Keyframes/PulseDot";
 import Spotify from "../components/Spotify";
+import Activity from "../components/Activity";
 import LinkedIn from "../components/Socials/LinkedIn";
 
 import { w3cwebsocket as W3CWebSocket } from "websocket";
@@ -13,6 +14,7 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 const PresenceList = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 15px;
     min-height: 45px;
 `;
@@ -76,10 +78,7 @@ const StatusDetailTop = styled.span`
     margin-left: 10px;
 `;
 
-const StatusDetailBottom = styled.div`
-    position: relative;
-    display: block;
-`;
+const StatusDetailBottom = styled.div``;
 
 const StatusText = styled.span`
     color: ${props => props.statusColor};
@@ -151,7 +150,8 @@ const About = () => {
                         </StatusDetailHolder>
                     </StatusHolder>
                     {presence.listening_to_spotify && <Spotify src={presence.spotify} /> }
-                </PresenceList> }
+                    {presence.activities.map(activity => activity.type === 0 && <Activity src={activity} />)}
+                </PresenceList>}
                 <LinkedIn />
             </AboutContent>
         </>
