@@ -29,11 +29,21 @@ const GreetingImage = styled.img`
     margin-right: 10px;
 `;
 
-export default (props) => (
-    <AboutContent>
-        <GreetingImage src={WaveGif} />
-        <AboutContentTitle>{props.title}</AboutContentTitle>
-        <AboutContentDesc>{props.description}</AboutContentDesc>
-        {props.children}
-    </AboutContent>
-);
+export default (props) => {
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        setLoading(false);
+    }, []);
+
+    return (
+        <>
+            { !loading && <AboutContent>
+                <GreetingImage src={WaveGif} />
+                <AboutContentTitle>{props.title}</AboutContentTitle>
+                <AboutContentDesc>{props.description}</AboutContentDesc>
+                {props.children}
+            </AboutContent> }
+        </>
+    );
+};
