@@ -40,23 +40,21 @@ const SpotifyDetails = styled.div`
 `;
 
 export default (props) => (
-    <>
-        {props.src && <SpotifyHolder>
-            <SpotifyAlbumHolder>
-                <SpotifyAlbumImage src={props.src.album_art_url} />
-                <SpotifyIndicator src="https://cdn-icons-png.flaticon.com/512/174/174872.png" />
-            </SpotifyAlbumHolder>
-            <SpotifyDetailHolder>
-                <SpotifyDetails>
-                    <a href={`https://open.spotify.com/track/${props.src.track_id}`} target="_blank">{props.src.song}</a>
-                </SpotifyDetails>
-                <SpotifyDetails>
-                    by {props.src.artist}
-                </SpotifyDetails>
-                <SpotifyDetails>
-                    on {props.src.album}
-                </SpotifyDetails>
-            </SpotifyDetailHolder>
-        </SpotifyHolder> }
-    </>
+    props.src && <SpotifyHolder>
+        <SpotifyAlbumHolder>
+            <SpotifyAlbumImage src={props.src.album_art_url} />
+            <SpotifyIndicator src="https://cdn-icons-png.flaticon.com/512/174/174872.png" />
+        </SpotifyAlbumHolder>
+        <SpotifyDetailHolder>
+            <SpotifyDetails>
+                <a href={`https://open.spotify.com/track/${props.src.track_id}`} target="_blank">{props.src.song}</a>
+            </SpotifyDetails>
+            <SpotifyDetails>
+                by {props.src.artist}
+            </SpotifyDetails>
+            <SpotifyDetails>
+                on {props.src.album}
+            </SpotifyDetails>
+        </SpotifyDetailHolder>
+    </SpotifyHolder>
 );
