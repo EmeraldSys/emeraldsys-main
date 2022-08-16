@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import AboutTweenIn from "./Keyframes/AboutTweenIn";
 import WaveGif from "../images/wave.gif";
 
 const AboutContent = styled.div`
@@ -12,6 +13,7 @@ const AboutContent = styled.div`
     margin: 25% auto;
     color: #fff;
     font-family: "Ubuntu", monospace, sans-serif;
+    animation: ${AboutTweenIn} 1.25s ease-in-out;
 `;
 
 const AboutContentTitle = styled.div`
