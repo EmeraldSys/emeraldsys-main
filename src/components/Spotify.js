@@ -40,18 +40,19 @@ const SpotifyDetails = styled.div`
 `;
 
 const msToMinSeconds = millis => {
-    let minutes = Math.floor(millis / 60000);
-    let seconds = Number(((millis % 60000) / 1000).toFixed(0));
-    return seconds == 60 ? minutes + 1 + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    const minutes = Math.floor(millis / 60000);
+    const seconds = Number(((millis % 60000) / 1000).toFixed(0));
+    return seconds === 60 ? `${minutes + 1}:00` : `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 };
 
 export default (props) => {
     const [current, setCurrent] = React.useState(new Date().getTime());
-    const [length, setLength] = React.useState(msToMinSeconds(props.src.timestamps.end - props.src.timestamps.start));
+
+    const length = msToMinSeconds(props.src.timestamps.end - props.src.timestamps.start);
     const [elapsed, setElapsed] = React.useState("");
 
     React.useEffect(() => {
-        let interval = setInterval(() => {
+        const interval = setInterval(() => {
             setCurrent(new Date().getTime());
         }, 1000);
 
