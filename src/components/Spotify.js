@@ -52,7 +52,7 @@ export default (props) => {
     const [elapsed, setElapsed] = React.useState("");
 
     React.useEffect(() => {
-        const interval = setInterval(() => {
+        let interval = setInterval(() => {
             setCurrent(new Date().getTime());
         }, 1000);
 
