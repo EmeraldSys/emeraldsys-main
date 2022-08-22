@@ -56,7 +56,10 @@ export default (props) => {
             setCurrent(new Date().getTime());
         }, 1000);
 
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+            interval = 0;
+        };
     }, []);
 
     React.useEffect(() => {
