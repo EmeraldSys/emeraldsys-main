@@ -140,7 +140,7 @@ const About = () => {
                     <StatusHolder>
                         <StatusDetailHolder>
                             <AvatarImageHolder>
-                                <AvatarImage src={`https://cdn.discordapp.com/avatars/${presence.discord_user.id}/${presence.discord_user.avatar}.png`} />
+                                <AvatarImage src={`https://dcdn.dstn.to/avatars/${presence.discord_user.id}`} />
                                 <StatusIndicator statusColor={`var(--presence-${presence.discord_status})`} />
                             </AvatarImageHolder>
                             <StatusDetailTop>{presence.discord_user.username}#{presence.discord_user.discriminator}</StatusDetailTop>
